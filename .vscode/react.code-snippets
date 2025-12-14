@@ -2,7 +2,7 @@
 	"component-ts": {
 		"prefix": "comp",
 		"scope": "typescriptreact",
-    "body": [
+		"body": [
 			"export interface ${1:ComponentName}Props {",
 			"\t${2:children?: React.ReactNode}",
 			"}\n",
@@ -11,21 +11,21 @@
 			"\treturn (",
 			"\t\t${0:<></>}",
 			"\t);",
-			"}\n",
+			"}\n"
 		],
-    "description": "React component"
+		"description": "React component"
 	},
-  "component-js": {
-    "prefix": "comp",
-    "scope": "javascript",
-    "body": [
-      "export default function ${1:ComponentName}(props) {",
-      "\tconst {} = props;\n",
-      "\treturn (",
-      "\t\t${0:<></>}",
-      "\t);",
-      "}\n",
-    ],
-    "description": "React component"
-  },
+	"component-js": {
+		"prefix": "comp",
+		"scope": "javascript",
+		"body": [
+			"export default function ${1:ComponentName}(props) {",
+			"\tconst {} = props;\n",
+			"\treturn (",
+			"\t\t${0:<></>}",
+			"\t);",
+			"}\n"
+		],
+		"description": "React component"
+	}
 }
