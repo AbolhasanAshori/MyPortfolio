@@ -1,22 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+/** biome-ignore-all lint/suspicious/noDuplicateProperties: disabled for incorrect warning for dark variant */
 @import "tailwindcss";
-@import "palette.css";
-
-@theme {
-	--breakpoint-sm: 23.4375rem;
-	--breakpoint-md: 48rem;
-	--breakpoint-lg: 64rem;
-	--breakpoint-xl: 90rem;
-	--breakpoint-2xl: 120rem;
-}
+@import "./theme.css" layer(theme);
 
 @layer base {
-	:root {
-		font-family:
-			"Inter", "Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont,
-			"Segoe UI", sans-serif;
-	}
-	body {
-		background-color: var(--color-bg);
-	}
+  :root {
+    font-family: var(--font-sans);
+  }
+  body {
+    background-color: var(--color-surface);
+
+    @variant dark {
+      background-color: var(--color-dark-surface-container-lowest);
+    }
+  }
 }
