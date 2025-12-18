@@ -1,0 +1,24 @@
+---
+import MoonIcon from "../../assets/icons/moon.svg";
+import SunIcon from "../../assets/icons/sun.svg";
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<button class:list={["color-switch", "p-2", "rounded-full", className]}>
+  <SunIcon class="stroke-white dark:stroke-black hidden dark:block" height="24" width="24" />
+  <MoonIcon class="stroke-white dark:stroke-black block dark:hidden" height="24" width="24" />
+</button>
+
+<script>
+  import { colorMode } from "@/store";
+
+  const btn = document.querySelector(".color-switch") as HTMLButtonElement;
+  btn.addEventListener("click", () => {
+    colorMode.set(colorMode.get() === "dark" ? "light" : "dark");
+  });
+</script>

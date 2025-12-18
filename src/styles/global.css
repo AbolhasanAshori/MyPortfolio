@@ -2,6 +2,8 @@
 @import "tailwindcss";
 @import "./theme.css" layer(theme);
 
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
 @layer base {
   :root {
     font-family: var(--font-sans);
@@ -12,5 +14,8 @@
     @variant dark {
       background-color: var(--color-dark-surface-container-lowest);
     }
+  }
+  button {
+    @apply cursor-pointer;
   }
 }
