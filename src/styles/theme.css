@@ -11,6 +11,10 @@
   --breakpoint-xl: 90rem; /* 1440px */
   --breakpoint-2xl: 120rem; /* 1920px */
 
+  --radius-none: 0px;
+  --radius-3_5xl: 1.75rem; /* 28px */
+  --radius-full: 9999px;
+
   --color-black: #000000;
   --color-white: #ffffff;
 
