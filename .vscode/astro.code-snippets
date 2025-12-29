@@ -4,7 +4,7 @@
     "scope": "typescript",
     "body": [
       "export type { ${1:ComponentName}Props } from \"./${1:ComponentName}.astro\";",
-      "export { default as ${1:ComponentName} } from \"./${1:ComponentName}.astro\";\n\n$0",
+      "export { default as ${1:ComponentName} } from \"./${1:ComponentName}.astro\";\n\n$0"
     ],
     "description": "Component Barrel Export"
   },

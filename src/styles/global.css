@@ -5,17 +5,17 @@
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
 @layer base {
-	:root {
-		font-family: var(--font-sans);
-	}
-	body {
-		background-color: var(--color-surface);
+  :root {
+    font-family: var(--font-sans);
+  }
+  body {
+    background-color: var(--color-surface);
 
-		@variant dark {
-			background-color: var(--color-dark-surface-container-lowest);
-		}
-	}
-	button {
-		@apply cursor-pointer;
-	}
+    @variant dark {
+      background-color: var(--color-dark-surface-container-lowest);
+    }
+  }
+  button {
+    @apply cursor-pointer;
+  }
 }
