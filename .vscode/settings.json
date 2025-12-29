@@ -5,5 +5,11 @@
   },
   "editor.quickSuggestions": {
     "strings": "on"
+  },
+  "[javascript][javascriptreact][typescript][typescriptreact][jsonc][json][html][tailwindcss][css]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
   }
 }

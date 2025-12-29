@@ -1,6 +1,6 @@
 {
 	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
-  "root": true,
+	"root": true,
 	"vcs": {
 		"enabled": true,
 		"clientKind": "git",
@@ -17,9 +17,9 @@
 		"enabled": true,
 		"rules": {
 			"recommended": true,
-      "nursery": {
-        "useSortedClasses": "error"
-      }
+			"nursery": {
+				"useSortedClasses": "error"
+			}
 		}
 	},
 	"javascript": {
@@ -27,11 +27,11 @@
 			"quoteStyle": "double"
 		}
 	},
-  "css": {
-    "parser": {
-      "tailwindDirectives": true
-    }
-  },
+	"css": {
+		"parser": {
+			"tailwindDirectives": true
+		}
+	},
 	"assist": {
 		"enabled": true,
 		"actions": {
@@ -40,21 +40,21 @@
 			}
 		}
 	},
-  "overrides": [
-    {
-      "includes": ["**/*.svelte", "**/*.astro", "**/*.vue"],
-      "linter": {
-        "rules": {
-          "style": {
-            "useConst": "off",
-            "useImportType": "off"
-          },
-          "correctness": {
-            "noUnusedVariables": "off",
-            "noUnusedImports": "off"
-          }
-        }
-      }
-    }
-  ]
+	"overrides": [
+		{
+			"includes": ["**/*.svelte", "**/*.astro", "**/*.vue"],
+			"linter": {
+				"rules": {
+					"style": {
+						"useConst": "off",
+						"useImportType": "off"
+					},
+					"correctness": {
+						"noUnusedVariables": "off",
+						"noUnusedImports": "off"
+					}
+				}
+			}
+		}
+	]
 }
