@@ -10,10 +10,10 @@
     font-family: var(--font-sans);
   }
   body {
-    background-color: var(--color-surface);
+    background-color: var(--color-background);
 
     @variant dark {
-      background-color: var(--color-dark-surface-container-lowest);
+      background-color: var(--color-dark-background);
     }
   }
   button {
