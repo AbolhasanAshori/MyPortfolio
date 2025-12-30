@@ -1,22 +1,6 @@
-/** biome-ignore-all lint/suspicious/noDuplicateProperties: disabled for incorrect warning for dark variant */
 @import "tailwindcss";
 @import "./theme.css" layer(theme);
 @import "./material.css" layer(material);
+@import "./base.css" layer(base);
 
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
-
-@layer base {
-  :root {
-    font-family: var(--font-sans);
-  }
-  body {
-    background-color: var(--color-background);
-
-    @variant dark {
-      background-color: var(--color-dark-background);
-    }
-  }
-  button {
-    @apply cursor-pointer;
-  }
-}

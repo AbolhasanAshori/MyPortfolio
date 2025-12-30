@@ -1,0 +1,16 @@
+/** biome-ignore-all lint/suspicious/noDuplicateProperties: disabled for incorrect warning for dark variant */
+:root {
+  font-family: var(--font-sans);
+}
+
+body {
+  background-color: var(--color-background);
+
+  @variant dark {
+    background-color: var(--color-dark-background);
+  }
+}
+
+button {
+  @apply cursor-pointer;
+}
