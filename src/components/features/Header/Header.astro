@@ -2,6 +2,7 @@
 import MenuIcon from "@/assets/icons/menu.svg";
 import Logo from "@/assets/logo.svg";
 import { ColorSwitch } from "../ColorSwitch";
+import { ResumeButton } from "../Resume";
 ---
 
 <header class="fixed top-0 left-0 right-0 flex justify-center py-6 px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-16 lg:py-4">
@@ -17,8 +18,8 @@ import { ColorSwitch } from "../ColorSwitch";
       <Logo class="fill-white dark:fill-black w-full h-full p-1 sm:p-0,5" />
     </div>
     <div class="flex gap-4 basis-1/2 justify-end">
-      <ColorSwitch class="-me-2 hidden lg:block" />
-      <button class="resume-btn px-3 py-2 bg-white dark:bg-black text-black dark:text-white rounded-lg">Resume</button>
+      <ColorSwitch class="-me-2 hidden lg:flex" />
+      <ResumeButton />
     </div>
   </div>
 </header>
@@ -26,13 +27,8 @@ import { ColorSwitch } from "../ColorSwitch";
 <script>
   import { menuOpen } from "@/store";
   const menuBtn = document.querySelector(".menu-btn") as HTMLButtonElement;
-  const resumeBtn = document.querySelector(".resume-btn") as HTMLButtonElement;
 
   menuBtn.addEventListener("click", () => {
     menuOpen.set(!menuOpen.get());
-  });
-
-  resumeBtn.addEventListener("click", () => {
-    window.open("/resume.pdf", "_blank");
   });
 </script>

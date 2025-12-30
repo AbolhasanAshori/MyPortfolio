@@ -1,0 +1,99 @@
+---
+import type { MdTextButton } from "@material/web/button/text-button";
+import type { LitElementProps } from "@/types";
+import type { ButtonConfigurations } from "./config";
+
+interface Props extends LitElementProps<MdTextButton>, ButtonConfigurations {}
+
+const { shape = "round", size = "sm", ...otherProps } = Astro.props;
+---
+
+<md-text-button shape={shape} size={size} {...otherProps}>
+  <slot />
+  <slot name="icon" />
+</md-text-button>
+
+<script>
+  import "@material/web/button/text-button.js";
+</script>
+
+<style>
+  /*
+    TODO: Add responsive sizing based on design tokens
+    https://m3.material.io/components/buttons/specs  
+  */
+  /* Custom styling for square configuration */
+  md-text-button[shape="square"] {
+    --md-text-button-container-shape: var(--md-sys-shape-corner-medium, 12px);
+  }
+
+  /* Base Material button styles */
+  md-text-button {
+    padding-block: calc((var(--_container-height) - $single-line-height) / 2);
+    padding-inline-start: var(--_leading-space);
+    padding-inline-end: var(--_trailing-space);
+  }
+
+  md-text-button[has-icon]:not([trailing-icon]) {
+    padding-inline-start: var(--_with-leading-icon-leading-space);
+    padding-inline-end: var(--_with-leading-icon-trailing-space);
+  }
+
+  md-text-button[has-icon][trailing-icon] {
+    padding-inline-start: var(--_with-trailing-icon-leading-space);
+    padding-inline-end: var(--_with-trailing-icon-trailing-space);
+  }
+
+  /* :root {
+    --md-text-button-container-height: 40px;
+    --md-text-button-disabled-label-text-color: var(--md-sys-color-on-surface, #1d1b20);
+    --md-text-button-disabled-label-text-opacity: 0.38;
+    --md-text-button-focus-label-text-color: var(--md-sys-color-primary, #6750a4);
+    --md-text-button-hover-label-text-color: var(--md-sys-color-primary, #6750a4);
+    --md-text-button-hover-state-layer-color: var(--md-sys-color-primary, #6750a4);
+    --md-text-button-hover-state-layer-opacity: 0.08;
+    --md-text-button-label-text-color: var(--md-sys-color-primary, #6750a4);
+    --md-text-button-label-text-font: var(--md-sys-typescale-label-large-font, var(--md-ref-typeface-plain, Roboto));
+    --md-text-button-label-text-line-height: var(--md-sys-typescale-label-large-line-height, 1.25rem);
+    --md-text-button-label-text-size: var(--md-sys-typescale-label-large-size, 0.875rem);
+    --md-text-button-label-text-weight: var(
+      --md-sys-typescale-label-large-weight,
+      var(--md-ref-typeface-weight-medium, 500)
+    );
+    --md-text-button-pressed-label-text-color: var(--md-sys-color-primary, #6750a4);
+    --md-text-button-pressed-state-layer-color: var(--md-sys-color-primary, #6750a4);
+    --md-text-button-pressed-state-layer-opacity: 0.12;
+    --md-text-button-disabled-icon-color: var(--md-sys-color-on-surface, #1d1b20);
+    --md-text-button-disabled-icon-opacity: 0.38;
+    --md-text-button-focus-icon-color: var(--md-sys-color-primary, #6750a4);
+    --md-text-button-hover-icon-color: var(--md-sys-color-primary, #6750a4);
+    --md-text-button-icon-color: var(--md-sys-color-primary, #6750a4);
+    --md-text-button-icon-size: 18px;
+    --md-text-button-pressed-icon-color: var(--md-sys-color-primary, #6750a4);
+    --md-text-button-container-shape-start-start: var(
+      --md-text-button-container-shape,
+      var(--md-sys-shape-corner-full, 9999px)
+    );
+    --md-text-button-container-shape-start-end: var(
+      --md-text-button-container-shape,
+      var(--md-sys-shape-corner-full, 9999px)
+    );
+    --md-text-button-container-shape-end-end: var(
+      --md-text-button-container-shape,
+      var(--md-sys-shape-corner-full, 9999px)
+    );
+    --md-text-button-container-shape-end-start: var(
+      --md-text-button-container-shape,
+      var(--md-sys-shape-corner-full, 9999px)
+    );
+    --md-text-button-leading-space: 12px;
+    --md-text-button-trailing-space: 12px;
+    --md-text-button-with-leading-icon-leading-space: 12px;
+    --md-text-button-with-leading-icon-trailing-space: 16px;
+    --md-text-button-with-trailing-icon-leading-space: 16px;
+    --md-text-button-with-trailing-icon-trailing-space: 12px;
+    --md-text-button-container-color: none;
+    --md-text-button-disabled-container-color: none;
+    --md-text-button-disabled-container-opacity: 0;
+  } */
+</style>

@@ -1,0 +1,16 @@
+---
+import type { MdMenuItem } from "@material/web/menu/menu-item";
+import type { LitElementProps } from "@/types";
+
+interface Props extends LitElementProps<MdMenuItem> {}
+
+const props = Astro.props;
+---
+
+<md-menu-item {...props}>
+  <slot />
+</md-menu-item>
+
+<script>
+  import "@material/web/menu/menu-item.js";
+</script>

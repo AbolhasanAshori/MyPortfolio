@@ -1,0 +1,35 @@
+---
+import type { MdFilledButton } from "@material/web/button/filled-button";
+import { FilledButton } from "@/components";
+import type { LitElementProps } from "@/types";
+
+interface Props extends LitElementProps<MdFilledButton> {}
+
+const props = Astro.props;
+---
+
+{/* TODO: Add resume file to the public folder */}
+<FilledButton {...props} shape="square" type="button" ariaLabel="Download Resume" href="/resume.pdf"
+  >Resume</FilledButton
+>
+
+<style>
+  md-filled-button {
+    --filled-button-color: var(--color-neutral-0);
+    --filled-button-selected-color: var(--color-neutral-100);
+
+    --md-filled-button-leading-space: 16px;
+    --md-filled-button-trailing-space: 16px;
+
+    /* TODO: Replace the css variables with the material system variables */
+    --md-filled-button-label-text-font: var(--font-sans);
+    --md-filled-button-label-text-line-height: var(--text-sm--line-height, 1);
+    --md-filled-button-label-text-size: var(--text-sm, 0.875rem);
+    --md-filled-button-label-text-weight: var(--font-weight-semibold, 600);
+
+    &:where([data-theme="dark"], [data-theme="dark"] *) {
+      --filled-button-color: var(--color-neutral-100);
+      --filled-button-selected-color: var(--color-neutral-0);
+    }
+  }
+</style>

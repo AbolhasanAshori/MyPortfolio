@@ -1,6 +1,7 @@
 ---
 import MoonIcon from "@/assets/icons/moon.svg";
 import SunIcon from "@/assets/icons/sun.svg";
+import IconButton from "@/components/ui/IconButton/IconButton.astro";
 
 interface Props {
   class?: string;
@@ -9,16 +10,48 @@ interface Props {
 const { class: className } = Astro.props;
 ---
 
-<button class:list={["color-switch", "p-2", "rounded-full", className]}>
-  <SunIcon class="stroke-white dark:stroke-black hidden dark:block" height="24" width="24" />
-  <MoonIcon class="stroke-white dark:stroke-black block dark:hidden" height="24" width="24" />
-</button>
+<IconButton
+  class:list={["color-switch", className]}
+  type="button"
+  aria-label="Color Switch Dark"
+  aria-label-selected="Color Switch Light"
+  toggle
+>
+  <MoonIcon />
+  <SunIcon slot="selected" />
+</IconButton>
 
 <script>
+  import type { MdIconButton } from "@material/web/iconbutton/icon-button";
   import { colorMode } from "@/store";
 
-  const btn = document.querySelector(".color-switch") as HTMLButtonElement;
-  btn.addEventListener("click", () => {
+  const btn = document.querySelector(".color-switch") as MdIconButton;
+  const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+  function handleButtonSelected(selected: boolean) {
+    if (selected) {
+      btn.setAttribute("selected", "");
+    } else {
+      btn.removeAttribute("selected");
+    }
+  }
+
+  function handleClick() {
     colorMode.set(colorMode.get() === "dark" ? "light" : "dark");
+    handleButtonSelected(colorMode.get() === "dark");
+  }
+
+  mediaQuery.addEventListener("change", () => {
+    handleButtonSelected(mediaQuery.matches);
   });
+
+  btn.addEventListener("click", handleClick);
+  handleButtonSelected(colorMode.get() === "dark");
 </script>
+
+<style>
+  md-icon-button {
+    --icon-button-color: var(--color-neutral-100);
+    --icon-button-selected-color: var(--color-neutral-0);
+  }
+</style>

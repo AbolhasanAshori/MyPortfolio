@@ -1,0 +1,60 @@
+---
+import type { MdIconButton } from "@material/web/iconbutton/icon-button";
+import type { LitElementProps } from "@/types";
+
+interface Props extends LitElementProps<MdIconButton> {}
+
+const props = Astro.props;
+---
+
+<md-icon-button {...props}>
+  <slot />
+  <slot name="selected" />
+</md-icon-button>
+
+<script>
+  import "@material/web/iconbutton/icon-button.js";
+</script>
+
+<style>
+  md-icon-button {
+    --md-sys-shape-corner-full: var(--icon-button-radius, unset);
+    --md-sys-color-on-surface: var(--icon-button-disabled-color, unset);
+    --md-sys-color-on-surface-variant: var(--icon-button-color, unset);
+    --md-sys-color-primary: var(--icon-button-selected-color, unset);
+    --md-icon-button-state-layer-height: var(--icon-button-height, unset);
+    --md-icon-button-state-layer-width: var(--icon-button-width, unset);
+    --md-icon-button-icon-size: var(--icon-button-size, unset);
+  }
+
+  /* :root {
+    --md-icon-button-disabled-icon-color: var(--md-sys-color-on-surface, #1d1b20);
+    --md-icon-button-disabled-icon-opacity: 0.38;
+    --md-icon-button-icon-size: 24px;
+    --md-icon-button-selected-focus-icon-color: var(--md-sys-color-primary, #6750a4);
+    --md-icon-button-selected-hover-icon-color: var(--md-sys-color-primary, #6750a4);
+    --md-icon-button-selected-hover-state-layer-color: var(--md-sys-color-primary, #6750a4);
+    --md-icon-button-selected-hover-state-layer-opacity: 0.08;
+    --md-icon-button-selected-icon-color: var(--md-sys-color-primary, #6750a4);
+    --md-icon-button-selected-pressed-icon-color: var(--md-sys-color-primary, #6750a4);
+    --md-icon-button-selected-pressed-state-layer-color: var(--md-sys-color-primary, #6750a4);
+    --md-icon-button-selected-pressed-state-layer-opacity: 0.12;
+    --md-icon-button-state-layer-height: 40px;
+    --md-icon-button-state-layer-shape: var(--md-sys-shape-corner-full, 9999px);
+    --md-icon-button-state-layer-width: 40px;
+    --md-icon-button-focus-icon-color: var(--md-sys-color-on-surface-variant, #49454f);
+    --md-icon-button-hover-icon-color: var(--md-sys-color-on-surface-variant, #49454f);
+    --md-icon-button-hover-state-layer-color: var(--md-sys-color-on-surface-variant, #49454f);
+    --md-icon-button-hover-state-layer-opacity: 0.08;
+    --md-icon-button-icon-color: var(--md-sys-color-on-surface-variant, #49454f);
+    --md-icon-button-pressed-icon-color: var(--md-sys-color-on-surface-variant, #49454f);
+    --md-icon-button-pressed-state-layer-color: var(--md-sys-color-on-surface-variant, #49454f);
+    --md-icon-button-pressed-state-layer-opacity: 0.12;
+    --container-shape-start-start: 0;
+    --container-shape-start-end: 0;
+    --container-shape-end-end: 0;
+    --container-shape-end-start: 0;
+    --container-height: 0;
+    --container-width: 0;
+  } */
+</style>
