@@ -1,7 +1,7 @@
 /** biome-ignore-all lint/suspicious/noDuplicateProperties: disabled for incorrect warning for dark variant */
 @import "tailwindcss";
 @import "./theme.css" layer(theme);
-@import "./meterial.css" layer(meterial);
+@import "./material.css" layer(material);
 
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 

@@ -19,5 +19,26 @@
     "scope": "javascript,typescript",
     "body": "export * from \"./${1:componentName}\";\n$0",
     "description": "Barrel Export"
+  },
+  "astro-material-component": {
+    "prefix": "comm",
+    "scope": "astro",
+    "body": [
+      "---",
+      "import type { Md${1:/pascalcase/} } from \"@material/web/${2:button/text-button}\";",
+      "import type { LitElementProps } from \"@/types\";\n",
+      "interface Props extends LitElementProps<Md${1:/pascalcase/}> {}\n",
+      "const props = Astro.props;",
+      "---\n",
+      "<md-${1} {...props}>",
+      "\t<slot />",
+      "</md-${1}>\n",
+      "<script>",
+      "\timport \"@material/web/${2:button/text-button}.js\"",
+      "</script>\n",
+      "$0"
+    ],
+    "description": "Create AstroJS component using Material Web Component (MWC)",
+    "isFileTemplate": true
   }
 }
